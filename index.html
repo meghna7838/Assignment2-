@@ -94,7 +94,7 @@ const totlRevenue = itemsSold.map((item)=>item["price"]).reduce((accum,currnt)=>
         );
       };
 
-        function App() {
+        function App1() {
             const showI =true;
             if(showI)
             return <Solditems/>
@@ -104,9 +104,41 @@ const totlRevenue = itemsSold.map((item)=>item["price"]).reduce((accum,currnt)=>
        
        function User()
        {
-        const loggedIn = false;
-        return (<h1> Hello {loggedIn?"Alexa":"User"}</h1>)
+        const loggedIn = true;
+        return (
+        <>    
+        <h1> Hello {loggedIn?"Alexa":"User"}</h1>
+        {loggedIn&& <p>Welcome to the portal!!</p>}
+        </>
+        )
     }
+    
+    const Login = () => (
+        <div>
+          <h3>Login to Continue</h3>
+          <form>
+            <input placeholder="email" />
+            <input placeholder="password" />
+            <button>Login</button>
+          </form>
+        </div>
+      );
+
+      const Home = () => (
+        <div>
+          <h3>Welcome to home!</h3>
+          <h5>Enjoy this catalog of pictures</h5>
+          {IMAGES.map((i) => (
+            <img key={i} src={i} />
+          ))}
+        </div>
+      );
+
+      const App = () => {
+        const login= true;
+        return (login? <Home/> :< Login/>);
+      };
+
         ReactDOM.createRoot(document.getElementById("root")).render(<><User/></>);
     
     </script>
