@@ -101,7 +101,14 @@ const totlRevenue = itemsSold.map((item)=>item["price"]).reduce((accum,currnt)=>
             else
             return <CarApp/>
         }
-       ReactDOM.createRoot(document.getElementById("root")).render(<><App/></>);
+       
+       function User()
+       {
+        const loggedIn = false;
+        return (<h1> Hello {loggedIn?"Alexa":"User"}</h1>)
+    }
+        ReactDOM.createRoot(document.getElementById("root")).render(<><User/></>);
+    
     </script>
 </body>
 </html>
