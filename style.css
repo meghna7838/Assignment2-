@@ -1,0 +1,27 @@
+h1{
+    color: blue;
+    font-size: 50px;
+}
+
+img{
+    width: 30px;
+}
+
+table{
+    border-color: brown;
+    border-style: double;
+    border-radius: 5px;
+    border-width: 5px;
+}
+
+th{
+    font-size: 40px;
+    background-color: aqua;
+    color: rgb(9, 3, 1);
+    padding: 3px;
+    margin: 5px;
+}
+td{
+    font-weight: bolder;
+    font-size: x-large;
+}

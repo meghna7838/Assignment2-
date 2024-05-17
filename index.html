@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div id="root"></div>
@@ -24,9 +24,10 @@
         image:"http://cdn-icons-png.flaticon.com/128/741/741407.png"},
        ];
 
-       function App(){
+       function CarApp(){
         return(
             <>
+            <h1> CAR DETAILS</h1>
             <table border="1px">
                 <thead>
                     <tr>
@@ -49,7 +50,51 @@
         )
        }
 
-       ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+       const App = () => {
+        const itemsSold = [
+          { id: 1, name: "iPhone 14", price: 1200, qty: 22 },
+          { id: 2, name: "iPad Pro", price: 800, qty: 18 },
+          { id: 3, name: "Macbook Air", price: 1500, qty: 7 },
+          { id: 4, name: "Samsung S23", price: 1100, qty: 16 },
+          { id: 5, name: "Dell Inspiron 5590", price: 1200, qty: 5 }
+        ];
+const totlRevenue = itemsSold.map((item)=>item["price"]).reduce((accum,currnt)=>accum+currnt,0);
+  
+       
+        return (
+          <>
+            <h1>Record of sold items</h1>
+            <table border="1px">
+            <thead>
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Selling price</th>
+        <th>Quantity</th>
+        </tr>	
+        </thead>
+        <tbody>
+    	{itemsSold.map((item)=>
+        <tr key={item.id}>
+        <td >{item.id}</td>
+        <td>{item.name}</td>
+        <td>{item.price}</td>
+        <td>{item.qty}</td>
+        </tr>)
+        }
+        </tbody>
+        <tfoot>
+        <tr>
+        <td>Total Revenue</td>
+        <td colspan="3">${totlRevenue}</td>
+        </tr>
+        </tfoot>
+            </table>
+          </>
+        );
+      };
+
+       ReactDOM.createRoot(document.getElementById("root")).render(<><CarApp/><App/></>);
     </script>
 </body>
 </html>
