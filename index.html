@@ -50,7 +50,7 @@
         )
        }
 
-       const App = () => {
+       const Solditems = () => {
         const itemsSold = [
           { id: 1, name: "iPhone 14", price: 1200, qty: 22 },
           { id: 2, name: "iPad Pro", price: 800, qty: 18 },
@@ -94,7 +94,14 @@ const totlRevenue = itemsSold.map((item)=>item["price"]).reduce((accum,currnt)=>
         );
       };
 
-       ReactDOM.createRoot(document.getElementById("root")).render(<><CarApp/><App/></>);
+        function App() {
+            const showI =true;
+            if(showI)
+            return <Solditems/>
+            else
+            return <CarApp/>
+        }
+       ReactDOM.createRoot(document.getElementById("root")).render(<><App/></>);
     </script>
 </body>
 </html>
